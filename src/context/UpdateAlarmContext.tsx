@@ -5,9 +5,16 @@ export type UpdateContextValue = {
   showUpdate: boolean;
   applyUpdate: () => void;
 };
-export const UpdateAlarmContext = createContext<UpdateContextValue | null>(null);
 
-export const UpdateAlarmProvider = ({children}: {children: JSX.Element | JSX.Element[]}) => {
+export const UpdateAlarmContext = createContext<UpdateContextValue | null>(
+  null
+);
+
+export const UpdateAlarmProvider = ({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) => {
   const [showUpdate, setShowUpdate] = useState(false);
 
   const applyUpdate = () => {
@@ -17,7 +24,7 @@ export const UpdateAlarmProvider = ({children}: {children: JSX.Element | JSX.Ele
       })
     );
   };
-  
+
   useEffect(() => {
     serviceWorkerRegistration.register({
       onUpdate: () => {
@@ -34,7 +41,9 @@ export const UpdateAlarmProvider = ({children}: {children: JSX.Element | JSX.Ele
     );
   }, []);
 
-
-
-  return <UpdateAlarmContext.Provider value={{showUpdate, applyUpdate}}>{children}</UpdateAlarmContext.Provider>
+  return (
+    <UpdateAlarmContext.Provider value={{ showUpdate, applyUpdate }}>
+      {children}
+    </UpdateAlarmContext.Provider>
+  );
 };

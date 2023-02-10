@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Home } from "./components/Home/Home";
 import { UpdateAlarmProvider } from "./context/UpdateAlarmContext";
-import { Banner } from './components/Banner/Banner';
+import { Banner } from "./components/Banner/Banner";
 
 function App() {
   return (

@@ -1,8 +1,6 @@
-import React, { createContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './Navbar.css';
-
-
 
 export const Navbar = () => {
   const history = useHistory();
