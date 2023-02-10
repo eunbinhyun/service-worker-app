@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
-import * as serviceWorkerRegistration from "../serviceWorkerRegistration";
 
 export type UpdateContextValue = {
   showUpdate: boolean;
+  handleShowUpdate: (update: boolean) => void;
   applyUpdate: () => void;
 };
 
@@ -26,12 +26,6 @@ export const UpdateAlarmProvider = ({
   };
 
   useEffect(() => {
-    serviceWorkerRegistration.register({
-      onUpdate: () => {
-        setShowUpdate(true);
-      },
-    });
-
     navigator.serviceWorker.getRegistrations().then((regs) =>
       regs.forEach((reg) => {
         if (reg.waiting) {
@@ -42,7 +36,7 @@ export const UpdateAlarmProvider = ({
   }, []);
 
   return (
-    <UpdateAlarmContext.Provider value={{ showUpdate, applyUpdate }}>
+    <UpdateAlarmContext.Provider value={{ showUpdate, handleShowUpdate: setShowUpdate, applyUpdate }}>
       {children}
     </UpdateAlarmContext.Provider>
   );
