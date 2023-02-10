@@ -8,7 +8,7 @@
   left: 50%;
   top: 60px;
   transform: translateX(-50%);
-  background-color: rgb(86, 11, 11);
+  background-color: rgb(0, 0, 0);
   color: white;
   height: 40px;
   font-size: 0.9em;
@@ -21,13 +21,14 @@
   font-size: 0.9em;
   display: flex;
   align-items: center;
-  background-color: #decdcd;
-  color:black;
+  color:rgb(249, 160, 160);
   border: none;
   height: 24px;
+  font-weight: bold;
+  background: none;
   cursor: pointer;
 }
 
 .btn:hover {
-  background-color: #d3b7b7;
+  color:rgb(237, 144, 144);
 }
