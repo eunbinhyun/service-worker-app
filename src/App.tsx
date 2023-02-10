@@ -17,7 +17,7 @@ function App() {
         context?.handleShowUpdate(true);
       },
     });
-  }, []);
+  }, [context]);
 
   return (
     <BrowserRouter>
