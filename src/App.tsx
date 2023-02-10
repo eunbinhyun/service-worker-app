@@ -12,20 +12,20 @@ function App() {
 
   useEffect(() => {
     console.log(serviceWorkerRegistration);
-    serviceWorkerRegistration.register({
-      onUpdate: () => {
-        context?.handleShowUpdate(true);
-      },
-      onSuccess: () => {
-        console.log('onSuccess')
-      }
-    });
-    navigator.serviceWorker.getRegistrations().then((regs) =>
-    regs.forEach((reg) => {
-      if (reg.waiting) {
-        context?.handleShowUpdate(true);
-      }
-    }));
+    // serviceWorkerRegistration.register({
+    //   onUpdate: () => {
+    //     context?.handleShowUpdate(true);
+    //   },
+    //   onSuccess: () => {
+    //     console.log('onSuccess')
+    //   }
+    // });
+    // navigator.serviceWorker.getRegistrations().then((regs) =>
+    // regs.forEach((reg) => {
+    //   if (reg.waiting) {
+    //     context?.handleShowUpdate(true);
+    //   }
+    // }));
   }, [context]);
 
   return (
