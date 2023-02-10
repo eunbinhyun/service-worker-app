@@ -1,23 +1,20 @@
 import "./App.css";
-import {
-  useHistory,
-  BrowserRouter,
-  Link,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { useEffect } from "react";
-import { Navbar } from './components/Navbar/Navbar';
-import { Home } from './components/Home/Home';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Home } from "./components/Home/Home";
+import { UpdateAlarmProvider } from "./context/UpdateAlarmContext";
+import { Banner } from './components/Banner/Banner';
 
 function App() {
-
   return (
     <BrowserRouter>
-      <Navbar/>
+      <UpdateAlarmProvider>
+        <Navbar />
+        <Banner />
+      </UpdateAlarmProvider>
       <Switch>
         <Route path={"/"} exact>
-          <Home/>
+          <Home />
         </Route>
         <Route path={"/menu1"}>
           <div className="content">This is Menu1</div>
