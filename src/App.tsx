@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Home } from "./components/Home/Home";
 import { UpdateAlarmContext, UpdateAlarmProvider } from "./context/UpdateAlarmContext";
 import { Banner } from "./components/Banner/Banner";
-import * as serviceWorkerRegistration from "../serviceWorkerRegistration";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { useContext, useEffect } from 'react';
 
 function App() {
