@@ -25,16 +25,6 @@ export const UpdateAlarmProvider = ({
     );
   };
 
-  useEffect(() => {
-    navigator.serviceWorker.getRegistrations().then((regs) =>
-      regs.forEach((reg) => {
-        if (reg.waiting) {
-          setShowUpdate(true);
-        }
-      })
-    );
-  }, []);
-
   return (
     <UpdateAlarmContext.Provider value={{ showUpdate, handleShowUpdate: setShowUpdate, applyUpdate }}>
       {children}

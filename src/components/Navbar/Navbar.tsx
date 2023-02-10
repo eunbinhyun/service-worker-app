@@ -13,7 +13,6 @@ export const Navbar = () => {
       }
       navigator.serviceWorker.getRegistrations().then((regs) =>
         regs.forEach((reg) => {
-          reg.waiting?.postMessage({ type: "SKIP_WAITING" });
           reg.update().catch((e) => {
             // Fetching SW failed.
           });
