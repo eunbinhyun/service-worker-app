@@ -1,0 +1,33 @@
+.banner {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px 10px 20px;
+  border-radius: 6px;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
+  background-color: rgb(86, 11, 11);
+  color: white;
+  height: 40px;
+  font-size: 0.9em;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.btn {
+  border-radius: 6px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  background-color: #decdcd;
+  color:black;
+  border: none;
+  height: 24px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #d3b7b7;
+}
