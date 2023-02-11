@@ -13,6 +13,7 @@ export const Navbar = () => {
       }
       navigator.serviceWorker.getRegistrations().then((regs) =>
         regs.forEach((reg) => {
+          console.log(reg, 'reg')
           reg.update().catch((e) => {
             // Fetching SW failed.
           });
