@@ -8,6 +8,7 @@ export const AppWrapper = ({children}: {children: JSX.Element}) => {
     
     navigator.serviceWorker.getRegistrations().then((regs) =>
       regs.forEach((reg) => {
+        console.log(reg, ' reg');
         if (reg.waiting) setShowUpdate(true);
       })
     );
