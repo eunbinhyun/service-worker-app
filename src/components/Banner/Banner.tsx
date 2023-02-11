@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { UpdateAlarmContext } from '../../context/UpdateAlarmContext';
 import './Banner.css';
 
 interface BannerProps {
