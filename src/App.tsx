@@ -11,7 +11,7 @@ function App() {
   const context = useContext(UpdateAlarmContext);
 
   useEffect(() => {
-    console.log(context, "useEffect");
+    console.log(context, "useEffect1");
     serviceWorkerRegistration.register({
       onUpdate: () => {
         console.log("onUpdate");
