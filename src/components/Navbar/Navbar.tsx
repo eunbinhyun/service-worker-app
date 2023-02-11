@@ -1,26 +1,29 @@
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import './Navbar.css';
+import "./Navbar.css";
 
-export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
+export const Navbar = ({ onShow }: { onShow: (show: boolean) => void }) => {
   const history = useHistory();
- 
+
   useEffect(() => {
     if (!history) return;
     const unlisten = history.listen((location, action) => {
       if (!navigator.serviceWorker) {
         return;
       }
+
       navigator.serviceWorker.getRegistrations().then((regs) =>
-        regs.forEach((reg) => {  
-          reg.update().then(() => {
-            if (reg.waiting) {
-              onShow(true);
-            }
-          }).catch((e) => {
-            // Fetching SW failed.
-          });
-          
+        regs.forEach((reg) => {
+          reg
+            .update()
+            .then(() => {
+              if (reg.waiting) {
+                onShow(true);
+              }
+            })
+            .catch((e) => {
+              // Fetching SW failed.
+            });
         })
       );
     });
@@ -32,12 +35,12 @@ export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
   return (
     <nav className="navbar">
       <ul className="menu">
-        <li className="menuItem">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="menuItem">
-          <Link to="/menu1">Menu1</Link>
-        </li>
+        <Link to="/">
+          <li className="menuItem">Home</li>
+        </Link>
+        <Link to="/menu1">
+          <li className="menuItem">Menu1</li>
+        </Link>
       </ul>
     </nav>
   );

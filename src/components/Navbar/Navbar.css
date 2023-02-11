@@ -24,12 +24,11 @@
   background-color: rgb(65, 102, 116);
 }
   
-.menuItem a {
+a {
   color: white;
   text-decoration: none;
 }
   
-.menuItem a:hover {
+a:hover {
   color: rgb(232, 238, 239);
 }
-  
