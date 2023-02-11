@@ -6,8 +6,10 @@ export const Navbar = () => {
   const history = useHistory();
   
   useEffect(() => {
+    console.log(history, 'history')
     if (!history) return;
     const unlisten = history.listen((location, action) => {
+      console.log(navigator.serviceWorker)
       if (!navigator.serviceWorker) {
         return;
       }
