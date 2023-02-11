@@ -15,13 +15,13 @@ export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
       }
       navigator.serviceWorker.getRegistrations().then((regs) =>
         regs.forEach((reg) => {
-          console.log(reg, 'reg')
-        
+          console.log(reg.update, reg.waiting, 'reg')
+          if (reg.waiting) {
+            onShow(true);
+          }
+      
           reg.update().then(() => {
             console.log(reg, 'reg2')
-            if (reg.waiting) {
-              onShow(true);
-            }
           }).catch((e) => {
             // Fetching SW failed.
           });
