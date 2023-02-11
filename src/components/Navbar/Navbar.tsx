@@ -31,7 +31,7 @@ export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
     return () => {
       unlisten();
     };
-  }, [history]);
+  }, [history, onShow]);
 
   return (
     <nav className="navbar">
