@@ -1,1 +1,1 @@
-export const Home = () => <div className="content"><span>This is Home.</span></div>;
+export const Home = () => <div className="content"><span>New Home🌟</span></div>;

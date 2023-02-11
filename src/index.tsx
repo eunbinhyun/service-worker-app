@@ -23,7 +23,6 @@ reportWebVitals();
 serviceWorkerRegistration.register({
   onUpdate: () => {
     console.log("onUpdate");
-//    setShowUpdate(true);
   },
   onSuccess: () => {
     console.log("onSuccess");
