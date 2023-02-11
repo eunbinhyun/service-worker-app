@@ -25,6 +25,10 @@ export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
           }).catch((e) => {
             // Fetching SW failed.
           });
+          console.log(reg.update, reg.waiting, 'reg')
+          if (reg.waiting) {
+            onShow(true);
+          }
         })
       );
     });
