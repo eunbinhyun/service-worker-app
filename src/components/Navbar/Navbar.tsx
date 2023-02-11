@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './Navbar.css';
 
-export const Navbar = () => {
+export const Navbar = ({onShow}: {onShow: (show: boolean) => void}) => {
   const history = useHistory();
-  
+ 
   useEffect(() => {
     console.log(history, 'history')
     if (!history) return;
@@ -16,7 +16,13 @@ export const Navbar = () => {
       navigator.serviceWorker.getRegistrations().then((regs) =>
         regs.forEach((reg) => {
           console.log(reg, 'reg')
-          reg.update().catch((e) => {
+        
+          reg.update().then(() => {
+            console.log(reg, 'reg2')
+            if (reg.waiting) {
+              onShow(true);
+            }
+          }).catch((e) => {
             // Fetching SW failed.
           });
         })

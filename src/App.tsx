@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Home } from "./components/Home/Home";
 
-function App() {
+function App(props: {onShow: (show: boolean) => void}) {
+  const {onShow} = props;
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar onShow={onShow}/>
       <Switch>
         <Route path={"/"} exact>
           <Home />

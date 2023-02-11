@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import App from './App';
 import { Banner } from './components/Banner/Banner';
 
-export const AppWrapper = ({children}: {children: JSX.Element}) => {
+export const AppWrapper = () => {
   const [showUpdate, setShowUpdate] = useState(false);
-
-  useEffect(() => {
-    
-    navigator.serviceWorker.getRegistrations().then((regs) =>
-      regs.forEach((reg) => {
-        console.log(reg, ' reg');
-        if (reg.waiting) setShowUpdate(true);
-      })
-    );
-  }, []);
 
   const applyUpdate = () => {
     navigator.serviceWorker.getRegistrations().then((regs) =>
@@ -22,5 +13,5 @@ export const AppWrapper = ({children}: {children: JSX.Element}) => {
     );
   };
 
-  return <><Banner show={showUpdate} applyUpdate={applyUpdate}/>{children}</>;
+  return <><Banner show={showUpdate} applyUpdate={applyUpdate}/><App onShow={(show) => setShowUpdate(show)}/></>;
 };
